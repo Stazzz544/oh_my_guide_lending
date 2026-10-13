@@ -1,0 +1,63 @@
+.phone {
+  --frame: calc(var(--phone-w, 300px) * 0.034);
+
+  position: relative;
+  flex: none;
+  width: var(--phone-w, 300px);
+  padding: var(--frame);
+  border-radius: calc(var(--phone-w, 300px) * 0.155);
+  background: var(--phone-frame);
+  box-shadow:
+    inset 0 0 0 1.5px rgb(255 255 255 / 9%),
+    inset 0 0 0 calc(var(--frame) * 0.45) #06060c,
+    var(--phone-shadow);
+}
+
+.phone::before,
+.phone::after {
+  content: '';
+  position: absolute;
+  right: -2px;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: #26273a;
+}
+
+.phone::before {
+  top: 20%;
+  height: 7%;
+}
+
+.phone::after {
+  top: 30%;
+  height: 13%;
+}
+
+.screen {
+  position: relative;
+  aspect-ratio: 1344 / 2992;
+  overflow: hidden;
+  border-radius: calc(var(--phone-w, 300px) * 0.125);
+  background: #05050a;
+  isolation: isolate;
+}
+
+.camera {
+  position: absolute;
+  top: calc(var(--frame) + var(--phone-w, 300px) * 0.034);
+  left: 50%;
+  width: calc(var(--phone-w, 300px) * 0.036);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #030306;
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 7%);
+  transform: translateX(-50%);
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+}

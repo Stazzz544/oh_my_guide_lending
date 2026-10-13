@@ -1,0 +1,30 @@
+.layout {
+  display: grid;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: center;
+}
+
+.copy {
+  display: grid;
+  gap: 20px;
+  min-width: 0;
+}
+
+.visual {
+  display: flex;
+  justify-content: center;
+}
+
+.phone {
+  --phone-w: min(64vw, 300px);
+}
+
+@media (min-width: 768px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .phone {
+    --phone-w: min(300px, calc((100svh - 160px) / 2.15));
+  }
+}

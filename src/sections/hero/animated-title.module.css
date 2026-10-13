@@ -1,0 +1,38 @@
+.title {
+  font-family: var(--font-display);
+  font-size: var(--fs-h1);
+  font-weight: 600;
+  font-variation-settings: 'opsz' 72;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.line {
+  display: block;
+}
+
+.line + .line {
+  font-style: italic;
+  font-weight: 480;
+}
+
+.word {
+  display: inline-block;
+  white-space: nowrap;
+  animation: word-in 1s var(--ease-out) backwards;
+}
+
+@keyframes word-in {
+  from {
+    opacity: 0;
+    filter: blur(6px);
+    transform: translateY(0.22em);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .word {
+    animation: none;
+  }
+}

@@ -1,0 +1,157 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(40px, 7vw, 104px) clamp(72px, 10vw, 150px);
+}
+
+.layout {
+  display: grid;
+  gap: clamp(56px, 8vw, 72px);
+  align-items: center;
+}
+
+.copy {
+  position: relative;
+  z-index: 2;
+  min-width: 0;
+}
+
+.details {
+  display: grid;
+  gap: 28px;
+  margin-top: clamp(24px, 3vw, 40px);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  color: var(--color-text-muted);
+  font-size: var(--fs-small);
+}
+
+.facts li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.facts li::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-coral);
+}
+
+.stage {
+  --phone-w: min(66vw, 290px);
+
+  position: relative;
+  display: flex;
+  justify-content: center;
+  min-width: 0;
+}
+
+.parallax {
+  position: relative;
+}
+
+.phone-wrap {
+  position: relative;
+  width: var(--phone-w);
+}
+
+.phone {
+  position: relative;
+  z-index: 1;
+}
+
+.rings {
+  position: absolute;
+  z-index: 0;
+  left: calc(50% - var(--phone-w) * 2);
+  top: calc(var(--phone-w) * 0.724 - var(--phone-w) * 2);
+  width: calc(var(--phone-w) * 4);
+  aspect-ratio: 1;
+  pointer-events: none;
+  mask-image: radial-gradient(closest-side, #000 42%, rgb(0 0 0 / 35%) 75%, transparent 100%);
+}
+
+.rings-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.ring,
+.echo {
+  fill: none;
+  stroke-width: 1.5;
+}
+
+.ring {
+  stroke: var(--color-primary);
+  stroke-dasharray: 6 7;
+}
+
+.echo {
+  stroke: var(--color-coral);
+}
+
+.legend {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  width: max-content;
+  margin: 28px auto 0;
+  padding: 4px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-bg);
+}
+
+.legend-item {
+  padding: 6px 12px;
+  border-radius: var(--radius-control);
+  color: var(--color-text-muted);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease;
+}
+
+.legend-reached {
+  color: var(--color-text);
+}
+
+.legend-active {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+@media (min-width: 768px) {
+  .stage {
+    --phone-w: 310px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .layout {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  }
+
+  .stage {
+    --phone-w: min(330px, calc((100svh - 240px) / 2.16));
+  }
+}

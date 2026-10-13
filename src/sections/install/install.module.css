@@ -1,0 +1,133 @@
+.top {
+  display: grid;
+  gap: 40px;
+  align-items: end;
+  margin-bottom: clamp(48px, 7vw, 96px);
+}
+
+.intro {
+  display: grid;
+  gap: 20px;
+  min-width: 0;
+}
+
+.download {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 32px;
+}
+
+.download-main {
+  display: grid;
+  gap: 14px;
+  justify-items: start;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  color: var(--color-text-muted);
+  font-size: var(--fs-small);
+}
+
+.releases {
+  font-size: var(--fs-small);
+  font-weight: 500;
+}
+
+.qr {
+  display: none;
+  margin: 0;
+}
+
+.qr-code {
+  width: 132px;
+  height: 132px;
+  padding: 8px;
+  border-radius: 12px;
+  /* scanners read dark-on-light codes most reliably, so the code ignores the theme */
+  background: #ffffff;
+  color: #040134;
+}
+
+.qr-caption {
+  max-width: 150px;
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.bottom {
+  display: grid;
+  gap: 56px;
+  align-items: center;
+}
+
+.steps {
+  display: grid;
+  gap: 32px;
+}
+
+.step {
+  display: grid;
+  gap: 8px;
+  align-content: start;
+}
+
+.number {
+  margin-bottom: 4px;
+  color: var(--color-coral);
+  font-family: var(--font-display);
+  font-size: 2.75rem;
+  font-style: italic;
+  font-weight: 500;
+  font-variation-settings: 'opsz' 72;
+  line-height: 1;
+}
+
+.step-title {
+  font-size: 1.125rem;
+  font-weight: 650;
+  line-height: 1.3;
+}
+
+.step-text {
+  max-width: 28rem;
+  color: var(--color-text-secondary);
+  text-wrap: pretty;
+}
+
+.visual {
+  display: flex;
+  justify-content: center;
+}
+
+.phone {
+  --phone-w: min(60vw, 250px);
+}
+
+@media (min-width: 640px) {
+  .steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 40px 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .top {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .qr {
+    display: grid;
+    gap: 10px;
+    justify-items: center;
+  }
+
+  .bottom {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+}

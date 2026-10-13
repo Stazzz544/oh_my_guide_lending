@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ru" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OhMyGuide — гид по местам рядом с вами</title>
+    <meta
+      name="description"
+      content="Android-приложение: известные места вокруг вас на карте, пешие маршруты и экскурсии, которые телефон читает вслух. Бесплатно и без регистрации."
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" type="image/png" href="./favicon.png" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="alternate" hreflang="ru" href="%VITE_SITE_URL%?lang=ru" />
+    <link rel="alternate" hreflang="en" href="%VITE_SITE_URL%?lang=en" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="%VITE_SITE_URL%" />
+    <meta property="og:title" content="OhMyGuide — гид по местам рядом с вами" />
+    <meta
+      property="og:description"
+      content="Известные места вокруг вас на карте, пешие маршруты и экскурсии, которые телефон читает вслух."
+    />
+    <meta property="og:image" content="%VITE_SITE_URL%og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script>
+      (function () {
+        var root = document.documentElement;
+        var theme = null;
+        try {
+          theme = localStorage.getItem('omg-theme');
+        } catch (error) {}
+        if (theme !== 'light' && theme !== 'dark') {
+          theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        root.dataset.theme = theme;
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) {
+          meta.setAttribute('content', theme === 'dark' ? '#0d0d1a' : '#ffffff');
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
